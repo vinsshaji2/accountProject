@@ -1,0 +1,14 @@
+{% extends 'acApp/base.html'%}
+{% block body_block %}
+<div class="container">
+    <form method="POST" enctype="multipart/form-data" action="">
+        {% csrf_token %}
+        {{userform.as_p}}
+        {{userforminfo.as_p}}
+        <input type="submit" class="btn btn-primary" value="Submit">
+
+    </form>
+</div>
+
+
+{% endblock %}

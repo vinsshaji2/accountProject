@@ -1,0 +1,32 @@
+{% extends 'acApp/base.html' %}
+{% block body_block %}
+
+<div class="container">
+    <div class="jumbotron">
+        <table>
+            <tr>
+                <th style="padding:10px 10px 10px 10px;">username</th>
+                <th style="padding:10px 10px 10px 10px;">email</th>
+                <th style="padding:10px 10px 10px 10px;">Password</th>
+            </tr>
+            {% if det %}
+            <tr>
+                <td style="padding:10px 10px 10px 10px;">{{det.username}}</td>
+                <td style="padding:10px 10px 10px 10px;">{{det.email}}</td>
+                <td style="padding:10px 10px 10px 10px;" >{{det.password}}</td>
+                <td>
+                    <form action="{% url 'acApp:user_delete' email=det.email %}" method="POST">
+                        {% csrf_token %}
+                        <button class="btn btn-primary" type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endif %}
+        </table>
+
+
+    </div>
+</div>
+
+
+{% endblock %}
